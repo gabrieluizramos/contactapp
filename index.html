@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
@@ -55,3 +56,208 @@
   
   </body>
 </html>
+=======
+<html ng-app="ContactAPP" ng-controller="ContactCTRL" ng-init="tab=0">
+<head>
+  <title>ContactApp - Sua WebAgenda</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Mantenha sua agenda de contatos limpa e com um fácil acesso utilizando ContactAPP, a sua WebAgenda">
+  <meta name="keywords" content="contatos, agenda, contactapp, webagenda, webapp, angularjs, parse">
+  <meta name="author" content="IFSP - Cubatão, TCC/PJS 2015">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css">
+  <!-- angular -->
+  <script src="js/angular.min.js" ></script> 
+  <!-- jquery -->
+  <script src="js/jquery-2.1.1.min.js" ></script>
+  <!-- parse -->
+  <script  src="js/parse-1.4.2.min.js"></script>
+  <script>
+    Parse.initialize("b6QegQ431Rg1pnyqFQAWAqAg4MimXY0NQyPLtdXm", "dqTilcfC2M7Vk6jgJSnnqj4iKZfES5mnOIZoFhpL");
+  </script>
+  <!-- controller -->
+  <script src="js/controller.js"></script>
+  <!-- whatsapp -->
+  <script type="text/javascript">if(typeof wabtn4fg==="undefined"){wabtn4fg=1;h=document.head||document.getElementsByTagName("head")[0],s=document.createElement("script");s.type="text/javascript";s.src="js/whatsapp-button.js";h.appendChild(s);}</script>
+  <!-- typewriter -->
+  <script src="js/typed.js"></script>
+  <script>
+    $(function(){
+      $(".typewriter-1").typed({
+        strings: ["Data Cloud", "ContactAPP"],
+        typeSpeed: 1
+      });
+      // TYPEWRITER-2 + DELAY
+      setTimeout(function(){$(".typewriter-2").typed({
+        strings: ["Sua WebAgenda"],
+        typeSpeed: 50
+      });
+    },2000);
+    });
+  </script>
+</head>
+<body>
+  <header class="wrapper">
+    <div role="banner">
+      <a ng-click="tab=0">
+        <h1 class="type-area"><span class="typer typewriter-1">ContactAPP</span></h1>
+        <h2 class="type-area"><span class="typer typewriter-2"></span></h2>
+      </a>
+    </div>
+  </header>
+  <div class="wrapper">
+    <nav role="navigation" class="tabs-menu-responsive">
+      <a href="#" onclick="menuResponsive()"><img src="images/menu.png" alt=""></a>
+      <ul class="tabs-ul-responsive" id="ulResponsive" style="display:none;">
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="1" ng-click="tab=0" ng-class="{'active' : tab==0}">{{menu0}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="2" ng-click="tab=1" ng-class="{'active' : tab==1}">{{menu1}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="3" ng-click="tab=2" ng-class="{'active' : tab==2}">{{menu2}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="4" ng-click="tab=3" ng-class="{'active' : tab==3}">{{menu3}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="5" onclick="getLocation()" ng-click="tab=4" ng-class="{'active' : tab==4}">{{menu4}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="6" ng-click="tab=5" ng-class="{'active' : tab==5}">{{menu5}}</button></li>
+      </ul>
+    </nav>
+    <nav role="navigation" class="tabs-menu">
+      <ul class="tabs-ul">
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="1" ng-click="tab=0" ng-class="{'active' : tab==0}">{{menu0}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="2" ng-click="tab=1" ng-class="{'active' : tab==1}">{{menu1}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="3" ng-click="tab=2" ng-class="{'active' : tab==2}">{{menu2}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="4" ng-click="tab=3" ng-class="{'active' : tab==3}">{{menu3}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="5" onclick="getLocation()" ng-click="tab=4" ng-class="{'active' : tab==4}">{{menu4}}</button></li>
+        <li class="tabs-li"><button class="link-displayer" role="tab" tabindex="6" ng-click="tab=5" ng-class="{'active' : tab==5}">{{menu5}}</button></li>
+      </ul>
+    </nav>
+    <div class="content" role="main">
+     <div role="tabpanel" aria-labelledby="tab1" class="tab-0" ng-show="tab==0">
+      <div class="box">
+        <p class="change">
+          Sua WebAgenda.
+          <br>
+          Sistema construído para fins acadêmicos.
+          <br>
+          Somente tecnologias client-side foram utilizadas neste projeto.
+        </p>
+      </div>
+    </div>
+    <div role="tabpanel" aria-labelledby="tab2" class="tab-1" ng-show="tab==1">
+      <div class="box">
+        <h3 class="family-h">Crie sua nova agenda</h3>
+        <form>
+          <p>Digite seu nome: <input type="text" id="pegaNome"></p>
+          <p>Digite um nome para sua Agenda: <input type="text" id="pegaClasse"></p>
+          <p id="tempID" class="mostrador">
+          </p>  
+          <p>
+            <input type="button" ng-value="btn1" onclick="armazenaAgenda(document.getElementById('pegaNome').value,document.getElementById('pegaClasse').value)" class="btn">
+            <input type="button" ng-click="tab=2" ng-value="btn2" class="btn">
+          </form> 
+        </p>     
+      </div>
+    </div>
+    <div role="tabpanel" aria-labelledby="tab3" class="tab-2" ng-show="tab==2">
+      <div class="box">
+        <form>
+          <p>Digite a ID de sua agenda: <input type="text" id="idAgenda" maxlength="10"></p>
+          <p>Digite o nome da sua Agenda: <input type="text" id="nomeAgenda"></p>
+          <p>
+            <input type="button" ng-value="btn3" onclick="confirmarAgenda(); displayBlock();" class="btn">
+          </p>
+        </form>
+        <nav class="tabs-submenu-responsive">
+          <h3>O que deseja fazer?</h3>
+          <ul class="tabs-ul" id="sub-tabs-responsive" style="display:none;">
+            <li class="tabs-li"><button onclick="limpaCampos()" ng-click="tab2=1" ng-class="{'active' : tab2==1}">{{submenu1}}</button></li>
+            <li class="tabs-li"><button ng-click="tab2=2;" onclick="retornaContatos();" ng-class="{'active' : tab2==2}">{{submenu2}}</button></li>
+            <li class="tabs-li"><button onclick="limpaCampos()" ng-click="tab2=3;" ng-class="{'active' : tab2==3}">{{submenu3}}</button></li>
+            <li class="tabs-li"><button onclick="limpaCampos()" ng-click="tab2=4;" ng-class="{'active' : tab2==4}">{{submenu4}}</button></li>
+          </ul>
+        </nav>
+        <nav class="tabs-submenu">
+          <ul class="tabs-ul" id="sub-tabs" style="display:none;">
+            <h3 class="family-h">O que deseja fazer?</h3>
+            <li class="tabs-li"><button onclick="limpaCampos()" ng-click="tab2=1" class="btn" ng-class="{'active' : tab2==1}">{{submenu1}}</button></li>
+            <li class="tabs-li"><button ng-click="tab2=2;" onclick="retornaContatos();" class="btn" ng-class="{'active' : tab2==2}">{{submenu2}}</button></li>
+            <li class="tabs-li"><button onclick="limpaCampos()" ng-click="tab2=3;" class="btn" ng-class="{'active' : tab2==3}">{{submenu3}}</button></li>
+            <li class="tabs-li"><button onclick="limpaCampos()" ng-click="tab2=4;" class="btn" ng-class="{'active' : tab2==4}">{{submenu4}}</button></li>
+          </ul>
+        </nav>
+        <div class="tab2-1" ng-show="tab2==1">
+          <div class="box">
+            <form>
+              <p>Digite o nome do Contato: <input type="text" id="nomeContato"></p>
+              <p>Digite o telefone do Contato: <input type="text" id="telContato"></p>
+              <p>Digite o e-mail do Contato: <input type="text" id="emailContato"></p>
+              <p>
+                <input type="button" ng-value="btn4" onclick="armazenaContatos(document.getElementById('nomeContato').value, document.getElementById('telContato').value, document.getElementById('emailContato').value)" class="btn">
+              </p>
+            </form>
+            <p id="tempContatos1" class="mostrador"></p>
+          </div>
+        </div>
+        <div class="tab2-2" ng-show="tab2==2">
+         <div class="box">
+           <p id="tempContatos2" class="mostrador"></p>
+         </div>
+       </div>
+     </div>
+     <div class="tab2-3" ng-show="tab2==3">
+       <div class="box">
+        <p>
+         Digite a ID do contato a ser atualizado: <input type="text" id="idAlterar" maxlength="10"></p>
+         <p><input type="button" ng-value="btn3" class="btn" onclick="consultaAltera()"></p>
+         <p id="tempAltera">
+         </p>
+       </div>
+     </div>
+     <div class="tab2-4" ng-show="tab2==4">
+       <div class="box">
+         <p>Digite a ID do contato a ser apagado: <input type="text" id="idApagar" maxlength="10"></p>
+         <input type="button" ng-value="btn3" class="btn" onclick="consultaApaga()">
+         <p id="tempApaga">
+         </p>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div role="tabpanel" aria-labelledby="tab4" class="tab-3" ng-show="tab==3">
+  <div class="box">
+    <h3 class="family-h">Como Utilizar</h3>
+    <p>
+      O <span class="change">{{nome}}</span class="change"> veio para facilitar a utilização de agendas no cotidiano das pessoas. <br>
+      Caso ainda não possua uma agenda, clique em <span class="change">Nova Agenda</span> e efetue seu cadastro informado seu nome e um nome para sua agenda. Anote a ID que será gerada. <br>
+      Na aba <span class="change">Agenda já existente</span> você pode cadastrar, consultar, alterar e apagar os contatos de sua agenda, acessando-a pelo nome e pela sua ID.<br>
+      É necessário informar a ID dos contatos que deseja realizar alterações.
+    </p>
+  </div>
+</div>
+<div role="tabpanel" aria-labelledby="tab5" class="tab-4" ng-show="tab==4">
+  <div class="box">
+    <h3 class="family-h">Localização</h3>
+    <p id="mostraLocal"></p>
+  </div>
+</div>
+<div role="tabpanel" aria-labelledby="tab6" class="tab-5" ng-show="tab==5">
+  <div class="box">
+    <h3 class="family-h">Sobre</h3>
+    <span class="change">Desenvolvida por:</span> 
+    <ul class="list">
+     <li ng-repeat="dev in desenvolvedor">{{dev.nome}}</li>
+   </ul> <br>
+   <p>
+     2015 - IFSP Cubatão - Projeto/TCC, CTII-418
+     <br>
+     <br>
+     <a href="whatsapp://send" data-text="Acesse o projeto Data Cloud em sua aplicação ContactApp!" data-href="http://contactapp.ueuo.com/app/" class="wa_btn wa_btn_l" style="display:none">Compartilhar</a>
+     <hr>
+     <span class="change">Data Cloud: Performance de Dados em Nuvem</span>
+   </p>
+ </div>
+</div>
+</div>
+</body>
+</html>
+<!-- localização -->
+<script src="js/location.js"></script>
+<!-- funções -->
+<script src="js/functions.js"></script>
+>>>>>>> master
