@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ContactApp - AngularJS</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css">
+    <!-- angular -->
+    <script src="js/angular.min.js"></script> 
+    <!-- jquery -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <!-- controller -->
+    <script src="js/controller.js"></script>
+</head>
+<body ng-app="angularAPP" ng-controller="angularCtrl" ng-init="tab=1">
+    <div class="wrapper">
+        <h2 class="logo-angular family-h">Introdução a AngularJS</h2>
+        <nav class="tabs-menu">
+            <ul class="tabs-ul">
+                <li class="tabs-li"><a ng-click="tab=1" ng-class="{'active' : tab==1}">INÍCIO</a></li>
+                <li class="tabs-li"><a ng-click="tab=2" ng-class="{'active' : tab==2}">SEGUNDA ABA</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="tab-1" ng-show="tab==1">
+                <div class="box">
+                    <h3 class="family-h">Inserção de dados</h3>
+                    <h4 class="family-h">Via controller</h4>
+                    <p>
+                        Nome: <span ng-bind="nome"></span> <br>
+                        Sobrenome: <span ng-bind="sobrenome"></span> <br><br>
+                        Concatenação <br>
+                        Nome completo: {{nome+ " "+sobrenome}}
+                    </p>
+                    <h4 class="family-h">Dinamicamente</h4>
+                    <p>
+                        Digite seu nome <input type="text" ng-model="name" ng-init="name='aqui'"><br>
+                        Seu nome vai aparecer <span ng-bind="name"></span>
+                    </p>
+
+                </div>
+                <div class="box">
+                    <h3 class="family-h">Operações</h3>
+                    <p>
+                        Quantidade: <input type="number" ng-init="quantidade=5" ng-model="quantidade"> 
+                    </p>
+                    <p>
+                        Preço: <input type="number" ng-init="preco=50" ng-model="preco">
+                    </p>
+                    <p> 
+                        Total: R{{(quantidade * preco) | currency}}
+                    </p>
+                </div>
+                <div class="box">
+                    <ul class="list">
+                      <li ng-repeat="x in nomes">
+                        {{"Nome: "+ x.nome + " - Cidade: " + x.cidade }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab-2" ng-show="tab==2">
+            <div class="box">
+                    <h3 class="family-h">Segunda aba</h3>
+           </div>
+       </div>
+   </div>
+</div>
+</div>
+</body>
+</html>
